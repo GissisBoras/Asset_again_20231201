@@ -1,11 +1,14 @@
 ﻿
 
+using System.Diagnostics;
+
 namespace Asset_20231201
 {
     internal class Tool
     {
         public Tool(string type, string brand, string modelName, string office, DateTime dateOfPurchase, double priceOfAsset)
         {
+            
             Type = type;
             Brand = brand;
             ModelName = modelName;
@@ -57,19 +60,32 @@ namespace Asset_20231201
             double priceOfAsset = Convert.ToDouble(Console.ReadLine());
 
 
-            Tool asset = new Tool(type, brand, modelName, office, dateOfPurchase, priceOfAsset);
+            Tool asset = new Tool(type, brand, modelName, office, dateOfPurchase, priceOfAsset); ;
 
-            assetItems.Add(asset);
-            Console.WriteLine("Computer added successfully.");
+            //assetItems.Add(asset);
+            //Console.WriteLine("Computer added successfully.");
+
+            // asset newAsset = new asset(type, brand, modelName, office, priceOfAsset, dateOfPurchase);
+
+            using (var dbContext = new MyDbContex())
+            {
+                dbContext.Tools.Add(asset); //det jag vill lägga till
+                dbContext.SaveChanges();
+            }
+
         }
 
-        public static void ShowAssets(List<Tool> assetItems)
+        public static void ShowAssets()
         {
             //Skriver ut listan 
 
             Console.WriteLine("Sparade assets");
             Console.WriteLine("==============\n");
 
+             using (var dbContext = new MyDbContex())
+            {
+                //dbContext.
+            }
 
             foreach (Tool item in assetItems)
             {
