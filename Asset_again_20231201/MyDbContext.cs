@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 
-namespace Asset_again_20231201
+namespace Asset_20231201
 {
     internal class MyDbContex : DbContext
     {
