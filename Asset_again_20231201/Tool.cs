@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Asset_20231201
@@ -81,10 +82,11 @@ namespace Asset_20231201
 
             Console.WriteLine("Sparade assets");
             Console.WriteLine("==============\n");
+            List<Tool> assetItems;
 
-             using (var dbContext = new MyDbContex())
+            using (var dbContext = new MyDbContex())
             {
-                //dbContext.
+                assetItems = dbContext.Tools.ToList();
             }
 
             foreach (Tool item in assetItems)

@@ -46,7 +46,7 @@ namespace Asset_20231201
                     case "2":
                         {
 
-                            Tool.ShowAssets(assetItems); // Kalla på metod för att visa (skriva ut) verkyg
+                            Tool.ShowAssets(); // Kalla på metod för att visa (skriva ut) verkyg
                             break;
                         }
 
